@@ -94,3 +94,23 @@ const user2: User = {
 // ***************************************
 // CLASS
 // ***************************************
+class UserClass {
+  private name: string; // csak osztályon belül elérhető
+  firstName: string; // publikus
+  lastName: string; // publikus
+  readonly ro: string; // csak egyszer lehet értéket adni
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.name = firstName.concat(lastName);
+    this.ro = 'asas';
+  }
+
+  setRo() {
+    //this.ro = 'ssdsds'; // újboli értékadás tiltott
+  }
+}
+
+const user3 = new UserClass('Lorem', 'Ipsum');
+console.log(user3);
