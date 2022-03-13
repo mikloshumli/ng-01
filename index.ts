@@ -27,7 +27,7 @@ let infArrayType: (number | string)[] = [];
 infArrayType.push(1);
 infArrayType.push('sadadasad');
 //infArrayType.push(false); // hibát dob
-console.log(infArrayType);
+console.log('Több típusú tömb:', infArrayType);
 
 // enum typus
 const enum Season {
@@ -38,37 +38,45 @@ const enum Season {
 }
 
 const e: Season = Season.Autumn;
-console.log(e);
+console.log('Enum értéke', e);
 
 // any ugyanúgy visselkedik mint egy javascriptes változó.
 // futáskori hibákat okozhatnak
 // ha js és ts kódot közösen kell használni akkor érdemes használni
 const a: any = 'Lorem ipsum';
-console.log(a.toUpperCase());
+console.log('Any típusú string uppercase: ', a.toUpperCase());
 
 // Type Assertions amikor megmondjuk neki hogy mi tudjuk így már lesz kódkiegészítő
-console.log((a as string).toUpperCase());
+console.log('Type assertion: ', (a as string).toUpperCase());
 
 // type inference amikor a typescript fordító találja ki hogy milyen tpus
 const inf = 'Lorem';
-console.log(inf.toUpperCase());
+console.log('type inference string: ', inf.toUpperCase());
 
 const infArray = [];
 infArray.push('Lorem');
 infArray.push(2);
-console.log(infArray);
+console.log('type inference array: ', infArray);
+
+// Union types
+function unionType(args: string | string[]): number {
+  return args.length;
+}
+
+console.log(`Union type array: ${unionType(['Lorem', 'Ipsum'])}`);
+console.log(`Union type string lengt: ${unionType('Lorem')}`);
 
 // ***************************************
 // Functions
 // ***************************************
 function logFunction(x: string): void {
-  console.log('asasd');
+  console.log('Függvén hívás');
 }
 
 function conCatFunction(x: string, y: string): string {
   return x.concat(y);
 }
-console.log(conCatFunction('Lorem', 'Ipsum'));
+console.log('Concate függvény hívása: ', conCatFunction('Lorem', 'Ipsum'));
 
 // ***************************************
 // INTERFACE
